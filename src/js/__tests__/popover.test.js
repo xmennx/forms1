@@ -5,36 +5,35 @@ describe('Interaction with DOM Test', () => {
   let popover;
 
   beforeEach(() => {
-    toggleButton = document.createElement('button');
-    toggleButton.id = 'toggleButton';
-    document.getElementById = jest.fn().mockImplementation((id) => {
-      if (id === 'toggleButton') {
-        return toggleButton;
-      } if (id === 'myPopover') {
-        return popover;
-      }
-      return null;
-    });
+    document.body.innerHTML = `
+      <div id="myPopover" style="display: none;"></div>
+      <button id="toggleButton"></button>
+    `;
 
-    popover = document.createElement('div');
-    popover.id = 'myPopover';
-    popover.style.display = 'none';
+    toggleButton = document.getElementById('toggleButton');
+    popover = document.getElementById('myPopover');
 
-    Element.prototype.getBoundingClientRect = jest.fn().mockImplementation(() => ({
+    Element.prototype.getBoundingClientRect = jest.fn().mockReturnValue({
       top: 100,
       left: 200,
       height: 50,
-    }));
+    });
 
     setupPopover();
   });
 
-  test('Popover toggles visibility and position on button click', () => {
+  test('Popover becomes visible on button click', () => {
     toggleButton.click();
-
     expect(popover.style.display).toBe('block');
+  });
 
+  test('Popover position is correctly set on button click', () => {
+    toggleButton.click();
     expect(popover.style.top).toBe('95px'); // 100 - 50 - 5
+  });
+
+  test('Popover left position matches button click position', () => {
+    toggleButton.click();
     expect(popover.style.left).toBe('200px');
   });
 });
