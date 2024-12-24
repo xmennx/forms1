@@ -1,0 +1,40 @@
+.popover {
+    width: 300px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 999;
+    font-family: Arial, sans-serif;
+  }
+  
+  .popover p {
+    margin: 0;
+    padding: 5px;
+    font-size: 15px;
+  }
+  
+  .popover h3 {
+    margin: 0;
+    padding: 5px;
+    background-color: #ccc;
+    font-weight: 500;
+  }
+  
+  
+  
+  #toggleButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    padding: 10px;
+    background: #FF0000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    z-index: 1;
+  }
