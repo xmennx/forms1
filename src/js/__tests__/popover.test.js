@@ -1,4 +1,4 @@
-import { toggleVisibility, positionPopover } from '../app.js';
+import { toggleVisibility, positionPopover } from '../app';
 
 describe('toggleVisibility', () => {
   test('should show popover if it is hidden', () => {
