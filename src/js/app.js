@@ -1,6 +1,6 @@
 export function toggleVisibility(popover) {
   const styles = popover.style;
-  
+
   if (styles.display === 'none' || styles.display === '') {
     styles.display = 'block';
   } else {
